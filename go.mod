@@ -3,7 +3,7 @@ module k8s.io/minikube
 go 1.16
 
 require (
-	cloud.google.com/go/storage v1.13.0
+	cloud.google.com/go/storage v1.15.0
 	contrib.go.opencensus.io/exporter/stackdriver v0.12.1
 	github.com/Azure/azure-sdk-for-go v42.3.0+incompatible
 	github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/trace v0.16.0
@@ -30,7 +30,7 @@ require (
 	github.com/evanphx/json-patch v4.5.0+incompatible // indirect
 	github.com/go-logr/logr v0.3.0 // indirect
 	github.com/golang-collections/collections v0.0.0-20130729185459-604e922904d3
-	github.com/google/go-cmp v0.5.4
+	github.com/google/go-cmp v0.5.5
 	github.com/google/go-containerregistry v0.4.1
 	github.com/google/go-github v17.0.0+incompatible
 	github.com/google/go-github/v32 v32.1.0
@@ -78,7 +78,7 @@ require (
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
 	github.com/xeipuuv/gojsonschema v0.0.0-20180618132009-1d523034197f
 	github.com/zchee/go-vmnet v0.0.0-20161021174912-97ebf9174097
-	go.opencensus.io v0.22.6
+	go.opencensus.io v0.23.0
 	go.opentelemetry.io/otel v0.17.0
 	go.opentelemetry.io/otel/sdk v0.16.0
 	go.opentelemetry.io/otel/trace v0.17.0
@@ -86,11 +86,11 @@ require (
 	golang.org/x/crypto v0.0.0-20201002170205-7f63de1d35b0
 	golang.org/x/exp v0.0.0-20200224162631-6cc2880d07d6
 	golang.org/x/mod v0.4.1
-	golang.org/x/oauth2 v0.0.0-20210113205817-d3ed898aa8a3
-	golang.org/x/sync v0.0.0-20201207232520-09787c993a3a
-	golang.org/x/sys v0.0.0-20210124154548-22da62e12c0c
-	golang.org/x/text v0.3.4
-	google.golang.org/api v0.40.0
+	golang.org/x/oauth2 v0.0.0-20210413134643-5e61552d6c78
+	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
+	golang.org/x/sys v0.0.0-20210412220455-f1c623a9e750
+	golang.org/x/text v0.3.5
+	google.golang.org/api v0.45.0
 	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22 // indirect
 	gopkg.in/yaml.v2 v2.4.0
 	gotest.tools/v3 v3.0.2 // indirect
