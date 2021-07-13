@@ -32,7 +32,7 @@ import (
 
 	"github.com/Delta456/box-cli-maker/v2"
 	"github.com/briandowns/spinner"
-	isatty "github.com/mattn/go-isatty"
+	"github.com/mattn/go-isatty"
 
 	"k8s.io/klog/v2"
 	"k8s.io/minikube/pkg/minikube/localpath"
@@ -114,17 +114,12 @@ func Styled(st style.Enum, format string, a ...V) {
 }
 
 func boxedCommon(printFunc func(format string, a ...interface{}), format string, a ...V) {
-	str := Sprintf(style.None, format, a...)
-	str = strings.TrimSpace(str)
 	box := box.New(box.Config{Py: 1, Px: 4, Type: "Round"})
 	if useColor {
 		box.Config.Color = "Red"
 	}
-	str = box.String("", str)
-	lines := strings.Split(str, "\n")
-	for _, line := range lines {
-		printFunc(line + "\n")
-	}
+	str := Sprintf(style.None, format, a...)
+	printFunc(box.String("", strings.TrimSpace(str)))
 }
 
 // Boxed writes a stylized and templated message in a box to stdout
@@ -452,5 +447,8 @@ func applyTmpl(format string, a ...V) string {
 // Fmt applies formatting and translation
 func Fmt(format string, a ...V) string {
 	format = translate.T(format)
+	if len(a) == 0 {
+		return format
+	}
 	return applyTmpl(format, a...)
 }

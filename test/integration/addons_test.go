@@ -497,7 +497,7 @@ func validateOlmAddon(ctx context.Context, t *testing.T, profile string) {
 	}
 
 	// Install one sample Operator such as etcd
-	rr, err := Run(t, exec.CommandContext(ctx, "kubectl", "--context", profile, "create", "-f", "https://operatorhub.io/install/etcd.yaml"))
+	rr, err := Run(t, exec.CommandContext(ctx, "kubectl", "--context", profile, "create", "-f", filepath.Join(*testdataDir, "etcd.yaml")))
 	if err != nil {
 		t.Logf("etcd operator installation with %s failed: %v", rr.Command(), err)
 	}
@@ -518,7 +518,7 @@ func validateOlmAddon(ctx context.Context, t *testing.T, profile string) {
 	}
 
 	// Operator installation takes a while
-	if err := retry.Expo(checkOperatorInstalled, time.Second*3, Minutes(6)); err != nil {
+	if err := retry.Expo(checkOperatorInstalled, time.Second*3, Minutes(10)); err != nil {
 		t.Errorf("failed checking operator installed: %v", err.Error())
 	}
 }

@@ -24,9 +24,9 @@ import (
 
 const (
 	// Version is the current version of kic
-	Version = "v0.0.21"
+	Version = "v0.0.25"
 	// SHA of the kic base image
-	baseImageSHA = "30ac715d2caf25e953e6ca9b6525d17bc8148236a6153208780f2c485bcdffed"
+	baseImageSHA = "6f936e3443b95cd918d77623bf7b595653bb382766e280290a02b4a349e88b79"
 	// The name of the GCR kicbase repository
 	gcrRepo = "gcr.io/k8s-minikube/kicbase"
 	// The name of the Dockerhub kicbase repository
@@ -42,6 +42,9 @@ var (
 		// the fallback of BaseImage in case gcr.io is not available. stored in docker hub
 		// same image is push to https://github.com/kicbase/stable
 		fmt.Sprintf("%s:%s@sha256:%s", dockerhubRepo, Version, baseImageSHA),
+		// try without sha because #11068
+		fmt.Sprintf("%s:%s", gcrRepo, Version),
+		fmt.Sprintf("%s:%s", dockerhubRepo, Version),
 	}
 )
 
