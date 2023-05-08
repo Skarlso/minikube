@@ -30,7 +30,7 @@ jobs:
           echo "EOF" >> $GITHUB_OUTPUT
       - name: Create PR
         if: ${{ steps.bumpGh.outputs.changes != '' }}
-        uses: peter-evans/create-pull-request@2b011faafdcbc9ceb11414d64d0573f37c774b04
+        uses: peter-evans/create-pull-request@284f54f989303d2699d373481a0cfa13ad5a6666
         with:
           token: ${{ secrets.MINIKUBE_BOT_PAT }}
           commit-message: bump gh versions
